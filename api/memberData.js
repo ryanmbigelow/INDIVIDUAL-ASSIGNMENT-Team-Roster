@@ -41,4 +41,34 @@ const deleteMember = (firebaseKey) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-export { getMembers, getSingleMember, deleteMember };
+// CREATE A MEMBER
+const createMember = (payload) => new Promise((resolve, reject) => {
+  fetch(`${dbUrl}/members.json`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(payload),
+  })
+    .then((response) => response.json())
+    .then(resolve)
+    .catch(reject);
+});
+
+// UPDATE A MEMBER
+const updateMember = (payload) => new Promise((resolve, reject) => {
+  fetch(`${dbUrl}/members/${payload.firebaseKey}.json`, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(payload),
+  })
+    .then((response) => response.json())
+    .then(resolve)
+    .catch(reject);
+});
+
+export {
+  getMembers, getSingleMember, deleteMember, createMember, updateMember,
+};
