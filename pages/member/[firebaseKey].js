@@ -21,6 +21,7 @@ export default function ViewMemberDetails() {
           {memberDetails.name}
         </h5>
         <p>Role: {memberDetails.role}</p>
+        <p>Bio: {memberDetails.description}</p>
       </div>
     </div>
   );
