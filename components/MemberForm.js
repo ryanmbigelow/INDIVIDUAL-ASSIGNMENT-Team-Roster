@@ -12,6 +12,7 @@ const initialState = {
   image: '',
   name: '',
   role: '',
+  description: '',
 };
 
 export default function MemberForm({ memberObj }) {
@@ -63,7 +64,7 @@ export default function MemberForm({ memberObj }) {
         />
       </FloatingLabel>
 
-      {/* NAME INPUT  */}
+      {/* IMAGE INPUT  */}
       <FloatingLabel controlId="floatingInput1" label="Image" className="mb-3">
         <Form.Control
           type="text"
@@ -75,7 +76,7 @@ export default function MemberForm({ memberObj }) {
         />
       </FloatingLabel>
 
-      {/* NAME INPUT  */}
+      {/* ROLE INPUT  */}
       <FloatingLabel controlId="floatingInput1" label="Role" className="mb-3">
         <Form.Select
           type="text"
@@ -96,6 +97,18 @@ export default function MemberForm({ memberObj }) {
 
       </FloatingLabel>
 
+      {/* BIO INPUT  */}
+      <FloatingLabel controlId="floatingInput1" label="Description" className="mb-3">
+        <Form.Control
+          type="text"
+          placeholder="Enter a quick bio"
+          name="description"
+          value={formInput.description}
+          onChange={handleChange}
+          required
+        />
+      </FloatingLabel>
+
       <Button type="submit">{memberObj.firebaseKey ? 'Update' : 'Create'} Member</Button>
 
     </Form>
@@ -107,6 +120,7 @@ MemberForm.propTypes = {
     image: PropTypes.string,
     name: PropTypes.string,
     role: PropTypes.string,
+    description: PropTypes.string,
     firebaseKey: PropTypes.string,
   }),
 };
