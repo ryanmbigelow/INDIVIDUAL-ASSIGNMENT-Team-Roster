@@ -14,10 +14,6 @@ const initialState = {
   role: '',
 };
 
-// const memberRoles = [
-//   'Conductor', 'Soprano', 'Alto', 'Tenor', 'Baritone', 'Bass',
-// ];
-
 export default function MemberForm({ memberObj }) {
   const [formInput, setFormInput] = useState(initialState);
   const { user } = useAuth();
@@ -42,8 +38,11 @@ export default function MemberForm({ memberObj }) {
         .then(() => router.push('/members'));
     } else {
       const payload = { ...formInput, uid: user.uid };
-      createMember(payload).then(() => {
-        router.push('/members');
+      createMember(payload).then(({ name }) => {
+        const patchPayload = { firebaseKey: name };
+        updateMember(patchPayload).then(() => {
+          router.push('/');
+        });
       });
     }
   };
