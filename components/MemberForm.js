@@ -18,7 +18,7 @@ const memberRoles = [
   'Conductor', 'Soprano', 'Alto', 'Tenor', 'Baritone', 'Bass',
 ];
 
-function MemberForm({ memberObj }) {
+export default function MemberForm({ memberObj }) {
   const [formInput, setFormInput] = useState(initialState);
   const { user } = useAuth();
   // const router = useRouter;
@@ -114,5 +114,3 @@ MemberForm.propTypes = {
 MemberForm.defaultProps = {
   memberObj: initialState,
 };
-
-export default MemberForm;
