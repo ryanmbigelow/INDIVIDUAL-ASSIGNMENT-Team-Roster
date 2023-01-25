@@ -21,7 +21,7 @@ const initialState = {
 export default function MemberForm({ memberObj }) {
   const [formInput, setFormInput] = useState(initialState);
   const { user } = useAuth();
-  const router = useRouter;
+  const router = useRouter();
 
   useEffect(() => {
     if (memberObj.firebaseKey) (setFormInput(memberObj));
@@ -41,7 +41,7 @@ export default function MemberForm({ memberObj }) {
       updateMember(formInput)
         .then(() => router.push('/members'));
     } else {
-      const payload = { ...formInput, user: user.uid };
+      const payload = { ...formInput, uid: user.uid };
       createMember(payload).then(() => {
         router.push('/members');
       });
@@ -85,7 +85,16 @@ export default function MemberForm({ memberObj }) {
           value={formInput.role}
           onChange={handleChange}
           required
-        />
+        >
+          <option value="">Select a Role</option>
+          <option value="Conductor">Conductor</option>
+          <option value="Soprano">Soprano</option>
+          <option value="Alto">Alto</option>
+          <option value="Tenor">Tenor</option>
+          <option value="Baritone">Baritone</option>
+          <option value="Bass">Bass</option>
+        </Form.Select>
+
       </FloatingLabel>
 
       <Button type="submit">{memberObj.firebaseKey ? 'Update' : 'Create'} Member</Button>
