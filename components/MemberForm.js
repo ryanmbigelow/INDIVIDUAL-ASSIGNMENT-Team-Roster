@@ -8,7 +8,6 @@ import { useAuth } from '../utils/context/authContext';
 import { createMember, updateMember } from '../api/memberData';
 
 const initialState = {
-  firebaseKey: '',
   image: '',
   name: '',
   role: '',
