@@ -23,14 +23,6 @@ export default function NavBar() {
             <Link passHref href="/member/new">
               <Nav.Link>Add a Member</Nav.Link>
             </Link>
-            <li>
-              <input
-                className="form-control mr-sm-2"
-                id="search"
-                placeholder="Search Members"
-                aria-label="Search"
-              />
-            </li>
             <Button variant="danger" onClick={signOut}>Sign Out</Button>
           </Nav>
         </Navbar.Collapse>
