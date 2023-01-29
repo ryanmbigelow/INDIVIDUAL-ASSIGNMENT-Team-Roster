@@ -5,7 +5,7 @@ import {
   Navbar, Container, Nav, Button,
 } from 'react-bootstrap';
 import { signOut } from '../utils/auth';
-import SearchBar from './SearchBar';
+import SearchBar from './searchBar';
 
 export default function NavBar() {
   return (
