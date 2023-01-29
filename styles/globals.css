@@ -20,3 +20,7 @@ a {
 body {
   background-color: #88caab;
 }
+
+#searchBar {
+  display: flex;
+}
